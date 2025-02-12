@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:gdm_teste_tecnico/widgets/motel_carousel.dart';
 
 class Motel extends StatelessWidget {
-  const Motel({super.key});
+  const Motel({super.key, required this.motel});
+
+  final dynamic motel;
 
   @override
   Widget build(BuildContext context) {
@@ -19,12 +21,9 @@ class Motel extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               CircleAvatar(
-                child: Image.network(
-                  'https://placehold.jp/150x150.png',
-                  width: 27,
-                  height: 27,
-                  fit: BoxFit.cover,
-                ),
+                radius: 20,
+                backgroundImage: NetworkImage(motel["logo"]),
+                backgroundColor: Colors.transparent,
               ),
               const SizedBox(width: 15),
               Expanded(
@@ -46,7 +45,7 @@ class Motel extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "hotel estrela da água",
+                        motel["fantasia"],
                         maxLines: 1,
                         style: Theme.of(context)
                             .textTheme
@@ -54,7 +53,7 @@ class Motel extends StatelessWidget {
                             .copyWith(fontSize: 27),
                       ),
                       Text(
-                        "santana - são paulo",
+                        motel["bairro"],
                         style: Theme.of(context).textTheme.bodySmall,
                       ),
                       Row(
@@ -82,12 +81,12 @@ class Motel extends StatelessWidget {
                                     color: Colors.orange.shade400,
                                   ),
                                   const SizedBox(width: 5),
-                                  const Baseline(
+                                  Baseline(
                                     baseline: 10,
                                     baselineType: TextBaseline.alphabetic,
                                     child: Text(
-                                      "${4.6}",
-                                      style: TextStyle(
+                                      "${motel["media"]}",
+                                      style: const TextStyle(
                                         fontSize: 12,
                                         fontWeight: FontWeight.w600,
                                         color: Colors.black,
@@ -108,15 +107,17 @@ class Motel extends StatelessWidget {
                                       const EdgeInsets.symmetric(horizontal: 5),
                                 ),
                                 child: Text(
-                                  "287 avaliações",
+                                  "${motel["qtdAvaliacoes"]} avaliações",
                                   maxLines: 1,
                                   style: Theme.of(context)
                                       .textTheme
                                       .bodySmall!
-                                      .copyWith(fontWeight: FontWeight.w600),
+                                      .copyWith(
+                                        fontWeight: FontWeight.w600,
+                                        letterSpacing: 0.1,
+                                      ),
                                 ),
                               ),
-                              const SizedBox(width: 5),
                               const Icon(
                                 Icons.expand_more,
                                 size: 11,
@@ -139,7 +140,7 @@ class Motel extends StatelessWidget {
             ],
           ),
         ),
-        const MotelCarousel(),
+        MotelCarousel(suites: motel["suites"]),
       ],
     );
   }
