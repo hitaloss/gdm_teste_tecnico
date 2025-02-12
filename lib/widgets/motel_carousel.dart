@@ -3,30 +3,28 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:gdm_teste_tecnico/widgets/motel_details.dart';
 
 class MotelCarousel extends StatelessWidget {
-  const MotelCarousel({super.key});
+  const MotelCarousel({super.key, required this.suites});
+
+  final List<dynamic> suites;
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, String>> motelData = [
-      {"image": "https://placehold.jp/300x200.png", "title": "suíte plus"},
-      {"image": "https://placehold.jp/300x200.png", "title": "suíte executiva"},
-      {"image": "https://placehold.jp/300x200.png", "title": "suíte estrela"},
-    ];
-
     return Column(
       children: [
         CarouselSlider(
           options: CarouselOptions(
-            height: MediaQuery.of(context).size.height * 0.5,
+            height: MediaQuery.of(context).size.height * 0.8,
             enlargeCenterPage: false,
             enableInfiniteScroll: false,
             autoPlay: false,
             viewportFraction: 0.9,
           ),
-          items: motelData.map((motel) {
+          items: suites.map((suite) {
             return MotelDetails(
-              imageUrl: motel["image"]!,
-              title: motel["title"]!,
+              imageUrl: suite["fotos"][0],
+              title: suite["nome"],
+              suiteCategories: suite["categoriaItens"],
+              periods: suite["periodos"],
             );
           }).toList(),
         ),
