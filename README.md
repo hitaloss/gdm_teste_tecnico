@@ -1,16 +1,65 @@
-# gdm_teste_tecnico
+# Documentação do Projeto - Guia de Motéis GO
 
-A new Flutter project.
+Este repositório é um teste técnico para a empresa **Guia de Motéis GO**. O projeto foi desenvolvido utilizando **Flutter**, gerenciado com o **Riverpod** para gerenciamento de estado e **http** para requisições de API.
 
-## Getting Started
+## Dependências Utilizadas
 
-This project is a starting point for a Flutter application.
+O projeto utiliza as seguintes bibliotecas:
 
-A few resources to get you started if this is your first Flutter project:
+- `cupertino_icons`
+- `http`
+- `flutter_riverpod`
+- `carousel_slider`
+- `intl`
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Essas dependências estão no arquivo `pubspec.yaml` e serão instaladas rodando o comando abaixo.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Como Configurar o Ambiente
+
+### 1. Instalar as Dependências
+
+Antes de rodar o projeto, é necessário instalar as dependências. No terminal, dentro do diretório do projeto, rode o comando:
+
+```sh
+flutter pub get
+```
+
+Para que todas as bibliotecas necessárias para o projeto sejam baixadas e configuradas corretamente.
+
+### 2. Executar o Emulador no VSCode
+
+Se você estiver utilizando o **VSCode**, pode abrir a paleta de comandos pressionando:
+
+```
+CTRL + SHIFT + P
+```
+
+Em seguida, procure pelo comando ou digite **Flutter: Launch Emulator** e selecione um dispositivo.
+
+Caso não tenha um emulador configurado, poderá ser utilizado o modelo abaixo:
+
+- **Pixel 6 API 33** (Android)
+
+Você pode configurar um novo emulador pelo **AVD Manager** do Android Studio ou via linha de comando usando:
+
+```sh
+flutter emulators --create --name=Pixel_6_API_33
+flutter emulators --launch Pixel_6_API_33
+```
+
+### 3. Executar o Projeto
+
+Com o emulador iniciado, rode o seguinte comando para iniciar o app:
+
+```sh
+flutter run
+```
+
+Ou vá no arquivo lib/main.dart e procure pelo botão **Run**, que fica logo em cima da função main,
+para executar o projeto no emulador.
+
+---
+
+Caso tenha algum problema, verifique se o **Flutter** e o **Android SDK** estão corretamente instalados e configurados.
+
+Para mais detalhes, consulte a [documentação oficial do Flutter](https://flutter.dev/docs).
