@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
-class MotelsDataNotifier extends StateNotifier<Map<String, dynamic>?> {
+class MotelsDataNotifier extends StateNotifier<List<dynamic>?> {
   MotelsDataNotifier() : super(null) {
     fetchMotels();
   }
@@ -13,16 +13,18 @@ class MotelsDataNotifier extends StateNotifier<Map<String, dynamic>?> {
           .get(Uri.parse("https://api.npoint.io/e728bb91e0cd56cc0711"));
 
       if (response.statusCode == 200) {
-        state = jsonDecode(response.body);
+        state = jsonDecode(response.body)["data"]["moteis"];
       } else {
         throw Exception("Falha ao carregar conteúdo");
       }
     } catch (error) {
-      state = {"error": error.toString()};
+      state = [
+        {"error": error.toString()}
+      ];
     }
   }
 }
 
 final motelsProvider =
-    StateNotifierProvider<MotelsDataNotifier, Map<String, dynamic>?>(
+    StateNotifierProvider<MotelsDataNotifier, List<dynamic>?>(
         (ref) => MotelsDataNotifier());
