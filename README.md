@@ -1,6 +1,13 @@
 # Documentação do Projeto - Guia de Motéis GO
 
+![guia de moteis go](logo.png)
+
+Link de apresentação do projeto:
+
+https://drive.google.com/file/d/1a4JPOS7_hz2A_x3peLfR7mWlkZaWcMtU/view?usp=sharing
+
 Este repositório é um teste técnico para a empresa **Guia de Motéis GO**. O projeto foi desenvolvido utilizando **Flutter**, gerenciado com o **Riverpod** para gerenciamento de estado e **http** para requisições de API.
+
 
 ## Dependências Utilizadas
 
